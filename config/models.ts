@@ -60,8 +60,16 @@ export function getModelConfig(modelName?: string): ModelConfig {
   return ALIYUN_MODELS[selectedModel] || ALIYUN_MODELS[DEFAULT_MODEL]
 }
 
+// 模型能力对比接口
+interface ModelComparison {
+  speed: number
+  accuracy: number
+  cost: number
+  features: string[]
+}
+
 // 模型能力对比
-export const MODEL_COMPARISON = {
+export const MODEL_COMPARISON: Record<string, ModelComparison> = {
   'qwen-vl-plus-latest': {
     speed: 4,
     accuracy: 4,
